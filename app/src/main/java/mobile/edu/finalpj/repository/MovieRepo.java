@@ -15,9 +15,11 @@ import mobile.edu.finalpj.domain.Movie;
  */
 public class MovieRepo {
 
-    private List<Movie> movieList = new ArrayList<>();
+    private List<Movie> movieList;
+    private static MovieRepo movieRepo;
 
-    public MovieRepo() {
+    private MovieRepo() {
+        movieList = new ArrayList<>();
         movieList.add(new Movie(1, "Matrix", "Watchowski", "SciFi"));
         movieList.add(new Movie(2, "Kill Bill", "Tarantino", "Drama"));
         movieList.add(new Movie(3, "Red Dragon", "Sparrow", "Action"));
@@ -32,6 +34,15 @@ public class MovieRepo {
         }
     }
 
+    public Movie findMovieById(Integer id) {
+        for (Movie movie : movieList) {
+            if (movie.getId().equals(id)) {
+                return movie;
+            }
+        }
+        return null;
+    }
+
     public List<Movie> getMovies() {
         return movieList;
     }
@@ -39,4 +50,14 @@ public class MovieRepo {
     public void remove(Movie movie) {
         movieList.remove(movie);
     }
+
+    public static MovieRepo getInstance() {
+        if (movieRepo == null) {
+            movieRepo = new MovieRepo();
+            return movieRepo;
+        } else {
+            return movieRepo;
+        }
+    }
+
 }

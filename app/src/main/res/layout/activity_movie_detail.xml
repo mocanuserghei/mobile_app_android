@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/activity_movie_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="mobile.edu.finalpj.activities.MailActivity">
+    tools:context="mobile.edu.finalpj.activities.MovieDetailActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,10 +25,9 @@
                 android:layout_weight="1">
 
                 <EditText
-                    android:id="@+id/sendToText"
+                    android:id="@+id/movieTitleText"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="@string/send_to" />
+                    android:layout_height="match_parent" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -37,12 +36,11 @@
                 android:layout_height="match_parent">
 
                 <EditText
-                    android:id="@+id/subjectText"
+                    android:id="@+id/movieProducerText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/subject" />
+                    android:ems="10" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -50,10 +48,9 @@
                 android:layout_height="match_parent">
 
                 <EditText
-                    android:id="@+id/msgText"
+                    android:id="@+id/movieDescriptionText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/message" />
+                    android:layout_height="wrap_content" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -69,25 +66,24 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/skipBtn"
+                        android:id="@+id/backBtn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:onClick="skipToNextModal"
-                        android:text="@string/skip" />
+                        android:onClick="backToListView"
+                        android:text="@string/back" />
 
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/submitBtn"
+                    android:id="@+id/saveBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="openMailModal"
-                    android:text="@string/submit" />
+                    android:onClick="persistMovie"
+                    android:text="@string/save" />
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
-
-</LinearLayout>
+</RelativeLayout>

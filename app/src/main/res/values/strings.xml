@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FinalPJ</string>
+    <string name="app_name">Movie App</string>
     <string name="action_settings">Settings</string>
     <string name="submit">Submit</string>
     <string name="message">Message</string>
@@ -9,4 +9,6 @@
     <string name="send_to">Send to</string>
     <string name="skip">Skip</string>
     <string name="title_activity_movie">MovieActivity</string>
+    <string name="back">Back</string>
+    <string name="save">Save</string>
 </resources>
