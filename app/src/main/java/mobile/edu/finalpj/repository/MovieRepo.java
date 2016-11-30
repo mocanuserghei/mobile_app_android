@@ -1,12 +1,7 @@
 package mobile.edu.finalpj.repository;
 
-import android.content.Intent;
-
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import mobile.edu.finalpj.domain.Movie;
 

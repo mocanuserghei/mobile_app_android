@@ -1,10 +1,14 @@
 package mobile.edu.finalpj.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+
+import com.facebook.AccessToken;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
 
 import mobile.edu.finalpj.R;
 import mobile.edu.finalpj.domain.Movie;
@@ -53,6 +57,19 @@ public class MovieDetailActivity extends AppCompatActivity {
         MovieRepo.getInstance().saveMovie(new Movie(movieId, name, producer, desc));
         Intent intent = new Intent(this, MovieActivity.class);
         startActivity(intent);
+    }
+
+    public void signOut(View view) {
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        LoginManager.getInstance().logOut();
+        AccessToken.setCurrentAccessToken(null);
+        Intent intent = new Intent(this, FacebookLoginExample.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 }

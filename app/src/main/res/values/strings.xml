@@ -11,4 +11,9 @@
     <string name="title_activity_movie">MovieActivity</string>
     <string name="back">Back</string>
     <string name="save">Save</string>
+    <string name="sing_out">Sign out</string>
+
+    <!--id for facebook app-->
+    <string name="facebook_app_id">355059124854709</string>
+
 </resources>
