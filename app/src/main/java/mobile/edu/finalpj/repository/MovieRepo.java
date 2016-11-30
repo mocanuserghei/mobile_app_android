@@ -10,6 +10,10 @@ import mobile.edu.finalpj.domain.Movie;
  */
 public class MovieRepo {
 
+    //client id
+    //264020728602-87fvb5dbtp40nufr9q0ulfo5pftcr992.apps.googleusercontent.com
+
+
     private List<Movie> movieList;
     private static MovieRepo movieRepo;
 

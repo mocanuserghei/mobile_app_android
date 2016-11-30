@@ -72,4 +72,15 @@ public class FacebookLoginExample extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         facebookCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (AccessToken.getCurrentAccessToken() != null){
+            handleSignInResult(null);
+        }
+    }
+
+
+
 }

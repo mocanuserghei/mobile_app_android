@@ -16,8 +16,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <provider
+            android:name=".repository.MovieContentProvider"
+            android:authorities="movie"
+            android:enabled="true"
+            android:exported="false"
+            android:syncable="true" />
 
         <activity
             android:name=".activities.MailActivity"
@@ -26,13 +34,12 @@
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".activities.MovieActivity"
-            android:label="@string/title_activity_movie"
-            android:theme="@style/AppTheme"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.MovieDetailActivity" />
 
         <activity android:name=".activities.FacebookLoginExample">
