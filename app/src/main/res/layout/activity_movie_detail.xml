@@ -10,21 +10,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="mobile.edu.finalpj.activities.MovieDetailActivity">
 
-    <Button
-        android:text="@string/sing_out"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
-        android:id="@+id/signOutBtn"
-        android:layout_alignParentBottom="true"
-        android:onClick="signOut"
-        style="@style/com_facebook_button" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+       >
 
         <LinearLayout
             android:layout_width="match_parent"

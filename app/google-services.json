@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "743216566333",
+    "firebase_url": "https://finalmobile-594b0.firebaseio.com",
+    "project_id": "finalmobile-594b0",
+    "storage_bucket": "finalmobile-594b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743216566333:android:634f16cb75bd91d0",
+        "android_client_info": {
+          "package_name": "mobile.edu.finalpj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743216566333-p5haki9615g3lo6a3tc5i8er08jbjcj8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDW5B08D_7QK9ZXEXr5PHeyABPx6W76Iyc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -12,6 +12,7 @@ import com.facebook.login.LoginManager;
 
 import mobile.edu.finalpj.R;
 import mobile.edu.finalpj.domain.Movie;
+import mobile.edu.finalpj.repository.MovieDBRepo;
 import mobile.edu.finalpj.repository.MovieRepo;
 
 public class MovieDetailActivity extends AppCompatActivity {
@@ -21,14 +22,16 @@ public class MovieDetailActivity extends AppCompatActivity {
     private EditText movieDescriptionView;
     private Integer movieId;
 
+    private MovieDBRepo dbRepo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
 
         Intent intent = getIntent();
-        movieId = Integer.parseInt(intent.getStringExtra(MovieActivity.MOVIE_ID));
-        loadMovie(movieId);
+//        movieId = Integer.parseInt(intent.getStringExtra(MovieActivity.MOVIE_ID));
+//        loadMovie(movieId);
 
     }
 
@@ -54,7 +57,8 @@ public class MovieDetailActivity extends AppCompatActivity {
         String producer = movieProducerView.getText().toString();
         String desc = movieDescriptionView.getText().toString();
 
-        MovieRepo.getInstance().saveMovie(new Movie(movieId, name, producer, desc));
+        dbRepo.save(new Movie(1, name, producer, desc));
+//        MovieRepo.getInstance().saveMovie(new Movie(movieId, name, producer, desc));
         Intent intent = new Intent(this, MovieActivity.class);
         startActivity(intent);
     }
