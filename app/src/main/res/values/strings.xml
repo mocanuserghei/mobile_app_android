@@ -12,6 +12,7 @@
     <string name="back">Back</string>
     <string name="save">Save</string>
     <string name="sing_out">Sign out</string>
+    <string name="button_add">Add movie</string>
 
     <!--id for facebook app-->
     <string name="facebook_app_id">355059124854709</string>

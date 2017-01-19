@@ -95,7 +95,7 @@ public class FacebookLoginExample extends AppCompatActivity {
     }
 
     void handleSignInResult(Callable<Void> callable) {
-        Intent intent = new Intent(this, MovieDetailActivity.class);
+        Intent intent = new Intent(this, MovieActivity.class);
         startActivity(intent);
     }
 

@@ -13,8 +13,11 @@ import android.widget.ListView;
 import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import mobile.edu.finalpj.R;
 import mobile.edu.finalpj.domain.Movie;
@@ -24,6 +27,8 @@ public class MovieActivity extends AppCompatActivity {
 
     public static final String MOVIE_ID = "mobile.edu.finalpj/.activities.movieId";
     public MovieDBRepo dbRepo;
+    private FirebaseDatabase database;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +37,23 @@ public class MovieActivity extends AppCompatActivity {
 
         dbRepo = new MovieDBRepo(getApplicationContext());
 
-        final ListView movieListView = (ListView) findViewById(R.id.movieList);
+        final ListView movieListView = (ListView) findViewById(R.id.mylist);
+
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("users");
+        databaseReference.keepSynced(true);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d("", "d" + dataSnapshot.getValue());
+            }
+
+                @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         final ArrayAdapter<Movie> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dbRepo.getAll());
         movieListView.setAdapter(adapter);
@@ -45,13 +66,10 @@ public class MovieActivity extends AppCompatActivity {
             }
         });
 
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-        database.child("users").child("1").setValue("test1");
-        database.child("users").child("2").setValue("test2");
-        database.child("users").push().getKey();
-        DatabaseReference users = database.child("users").child("1");
-        Log.d("", "test " + users);
+    }
 
+    public void addNewMovie(View view) {
+        startActivity(new Intent(this, MovieDetailActivity.class));
     }
 
     public void openMovieDetailActivity(Integer movieId) {

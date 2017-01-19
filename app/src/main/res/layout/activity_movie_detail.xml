@@ -10,11 +10,19 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="mobile.edu.finalpj.activities.MovieDetailActivity">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
        >
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="backToListView"
+            android:text="@string/back" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,9 +93,17 @@
                     android:onClick="persistMovie"
                     android:text="@string/save" />
 
+                <Button
+                    android:id="@+id/deleteBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="delete"
+                    android:text="@string/do_delete" />
+
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
 </RelativeLayout>

@@ -10,6 +10,8 @@ public class Movie {
     private String producer;
     private String description;
 
+    public static int counter = 0;
+
     public Movie(Integer id, String name, String producer, String description) {
         this.name = name;
         this.producer = producer;
