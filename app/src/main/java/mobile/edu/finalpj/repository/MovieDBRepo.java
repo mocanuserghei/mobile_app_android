@@ -35,8 +35,8 @@ public class MovieDBRepo {
     }
 
     public Movie save(Movie movie) {
-        if (movie.getId() != null) {
-            delete(movie.getId());
+        if (movie.getKey() != null) {
+            delete(movie.getKey());
         }
 
         // Gets the data repository in write mode
@@ -51,7 +51,7 @@ public class MovieDBRepo {
         // Insert the new row, returning the primary key value of the new row
         int newRowId = (int) db.insert(MovieTable.TABLE_NAME, null, values);
 
-        return new Movie(newRowId, movie.getName(), movie.getProducer(), movie.getDescription());
+        return new Movie(String.valueOf(newRowId), movie.getName(), movie.getProducer(), movie.getDescription());
 
     }
 
@@ -59,7 +59,7 @@ public class MovieDBRepo {
         dbHelper.close();
     }
 
-    public Movie getById(long id) {
+    public Movie getById(String  id) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
         String selection = MovieTable._ID + " = ?";
@@ -87,14 +87,14 @@ public class MovieDBRepo {
         String name = cursor.getString(cursor.getColumnIndex(MovieTable.COLUMN_NAME));
         String producer = cursor.getString(cursor.getColumnIndex(MovieTable.COLUMN_PRODUCER));
 
-        return new Movie(id, desc, name, producer);
+        return new Movie(String.valueOf(id), desc, name, producer);
     }
 
-    public void delete(long id) {
+    public void delete(String key) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         String selection = MovieTable._ID + " = ?";
-        String[] args = {String.valueOf(id)};
+        String[] args = {String.valueOf(key)};
 
         db.delete(MovieTable.TABLE_NAME, selection, args);
     }

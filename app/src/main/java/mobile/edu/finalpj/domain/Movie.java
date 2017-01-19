@@ -5,18 +5,18 @@ package mobile.edu.finalpj.domain;
  */
 public class Movie {
 
-    private Integer id;
+    private String key;
     private String name;
     private String producer;
     private String description;
 
     public static int counter = 0;
 
-    public Movie(Integer id, String name, String producer, String description) {
+    public Movie(String  key, String name, String producer, String description) {
         this.name = name;
         this.producer = producer;
         this.description = description;
-        this.id = id;
+        this.key = key;
     }
 
     public String getName() {
@@ -50,12 +50,11 @@ public class Movie {
                 description;
     }
 
-    public Integer getId() {
-        return id;
+    public String getKey() {
+        return key;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setKey(String key) {
+        this.key = key;
     }
-
 }

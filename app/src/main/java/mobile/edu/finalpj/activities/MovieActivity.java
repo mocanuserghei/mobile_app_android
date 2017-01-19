@@ -19,6 +19,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import mobile.edu.finalpj.R;
 import mobile.edu.finalpj.domain.Movie;
 import mobile.edu.finalpj.repository.MovieDBRepo;
@@ -40,16 +43,24 @@ public class MovieActivity extends AppCompatActivity {
         final ListView movieListView = (ListView) findViewById(R.id.mylist);
 
         database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("users");
-        databaseReference.keepSynced(true);
+        databaseReference = database.getReference("movies");
+//        databaseReference.keepSynced(true);
+
+        final List<Movie> test = new ArrayList<>();
+        final List<String> test1 = new ArrayList<>();
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.d("", "d" + dataSnapshot.getValue());
+                Iterable<DataSnapshot> children = dataSnapshot.getChildren();
+                Log.d("", "datasnapshot" + dataSnapshot);
+                for (DataSnapshot child : children) {
+                    String value = child.getValue(String.class);
+                    test1.add(value);
+                }
             }
 
-                @Override
+            @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
@@ -62,7 +73,7 @@ public class MovieActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, final View view, int i, long l) {
                 Movie item = (Movie) adapterView.getItemAtPosition(i);
-                openMovieDetailActivity(item.getId());
+                openMovieDetailActivity(item.getKey());
             }
         });
 
@@ -72,9 +83,9 @@ public class MovieActivity extends AppCompatActivity {
         startActivity(new Intent(this, MovieDetailActivity.class));
     }
 
-    public void openMovieDetailActivity(Integer movieId) {
-        Intent intent = new Intent(MovieActivity.this, MovieDetailActivity.class);
-        intent.putExtra(MOVIE_ID, movieId.toString());
+    public void openMovieDetailActivity(String  movieId) {
+        Intent intent = new Intent(this, MovieDetailActivity.class);
+        intent.putExtra(MOVIE_ID, movieId);
         startActivity(intent);
     }
 
